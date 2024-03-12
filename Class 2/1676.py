@@ -1,19 +1,17 @@
-import sys
-input = sys.stdin.readline
+N = int(input())
 
-tot = 1
+num = 1
 cnt = 0
-n = int(input().rstrip())
 
-while (n != 0):
-    tot *= n
-    n -= 1
+while (N != 0): # while문이 완료되면 num = N!
+    num *= N
+    N -= 1
 
 while True:
-    if (tot % 10 == 0):
+    if (num % 10 == 0): # 뒤에서부터 0의 개수를 cnt로 셈
         cnt += 1
     else:
         break
-    tot = tot // 10
+    num = num // 10
 
 print(cnt)
