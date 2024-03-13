@@ -1,11 +1,11 @@
-# 문제에서 내장 함수 사용을 추천한다고 함
-# sorted 사용
 import sys
-n = int(input())
+input = sys.stdin.readline
+
+N = int(input().rstrip())
 lst = []
 
-for _ in range(n):
-    lst.append(int(sys.stdin.readline()))
+for _ in range(N):
+    lst.append(int(input().rstrip()))
 
 for i in sorted(lst):
-    sys.stdout.write(str(i)+'\n')
+    print(i)

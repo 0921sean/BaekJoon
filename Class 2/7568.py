@@ -30,12 +30,13 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input().rstrip())
+N = int(input().rstrip())
 lst = []
 
-for _ in range(n):
-    w, h = map(int, input().split())
-    lst.append((w, h))
+# ex. lst = [(55, 185), (58, 183), (88, 186), (60, 175), (46, 155)]
+for _ in range(N):
+    x, y = map(int, input().split())
+    lst.append((x, y))
 
 for i in lst:
     rank = 1
