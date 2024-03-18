@@ -1,3 +1,4 @@
+# # 규칙성 활용
 # import sys
 # input = sys.stdin.readline
 
@@ -18,6 +19,7 @@
 # # 결과 출력
 # print('<' + ', '.join(res) + '>')
 
+# deque 활용
 from collections import deque
 import sys
 input = sys.stdin.readline
