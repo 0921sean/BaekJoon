@@ -1,4 +1,3 @@
-# sorted 사용
 num = int(input())
 lst = []
 res = 0
