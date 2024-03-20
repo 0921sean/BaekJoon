@@ -50,31 +50,33 @@
 #     print(my_round(tot/bot))
 
 import sys
+input = sys.stdin.readline
 
+# 입력 받기
+n = int(input().rstrip()) # 난이도 의견의 개수
+lst = [] # 난이도 의견 리스트
+
+# 직접 정의한 반올림 함수
 def my_round(val):
     if (val - int(val) >= 0.5):
         return int(val) + 1
     else:
         return int(val)
-    
-input = sys.stdin.readline
 
-n = int(input().rstrip())
-lst = []
-
-if n == 0:
+if n == 0: # 특수한 경우 먼저 처리
     print(0)
 else:
+    # 난이도 의견 리스트 만듦
     for _ in range(n):
-        num = int(input().rstrip())
-        lst.append(num)
+        lst.append(int(input().rstrip()))
 
-    lst.sort()
+    lst.sort() # 정렬
 
-    m = my_round(n * 0.15)
-    tot = 0
+    m = my_round(n * 0.15) # 위아래 각각 제외할 난이도 의견 수
+    res = 0 # 계산한 문제 난이도
 
     for i in range(m, n-m):
-        tot += lst[i]
+        res += lst[i]
 
-    print(my_round(tot/(n-2*m)))
+    # 결과 출력하기
+    print(my_round(res / (n-2*m)))
