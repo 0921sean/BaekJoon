@@ -1,53 +1,26 @@
-# from collections import deque
-# import sys
-# input = sys.stdin.readline
-
-# test_num = int(input().rstrip())
-
-# for _ in range(test_num):
-#     cnt = 0
-#     i = 0
-#     n, m = map(int, input().split())
-#     queue = deque(list(map(int, input().split())))
-
-#     while True:
-#         max_num = max(queue)
-#         print(max_num)
-#         max_ind = queue.index(max_num)
-#         print(max_ind)
-#         if (max_ind == m):
-#             cnt += 1
-#             break
-#         for _ in range(max_ind):
-#             num = queue.popleft()
-#             queue.append(num)
-#         queue.popleft()
-#         cnt += 1
-#         m = m + n - max_ind - 1
-#     print(cnt)
-
 from collections import deque
 import sys
 input = sys.stdin.readline
 
-t = int(input().rstrip())
+# 입력 받기
+T = int(input().rstrip()) # 테스트케이스 수
 
-for _ in range(t):
-    n, m = map(int, input().split())
-    queue = deque(list(map(int, input().split())))
-    cnt = 0
+for _ in range(T):
+    N, M = map(int, input().split()) # 문서 개수, 궁금한 문서가 몇 번째에 놓여 있는지
+    deq = deque(list(map(int, input().split()))) # 큐
+    res = 0 # 문서가 몇 번쨰로 인쇄되는지
 
-    while queue:
-        max_num = max(queue)
-        front = queue.popleft()
-        m -= 1
+    while deq:
+        max_num = max(deq)
+        front = deq.popleft()
+        M -= 1
 
         if (max_num == front):
-            cnt += 1
-            if m < 0:
-                print(cnt)
+            res += 1
+            if M < 0:
+                print(res)
                 break
         else:
-            queue.append(front)
-            if m < 0:
-                m = len(queue) - 1
+            deq.append(front) # 문서를 인쇄하지 않고 큐의 가장 뒤에 재배치
+            if M < 0:
+                M = len(deq) - 1
